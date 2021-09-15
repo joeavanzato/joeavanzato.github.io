@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/css/smart_tab_all.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="{% static 'stylesheets/smarttab.css' %}">
+<link rel="stylesheet" type="text/css" href="stylesheets/smarttab.css">
 <title>JOE AVANZATO - ATTACK, DEFEND, REPEAT</title>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -28,24 +28,22 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
 
 
-<link rel="stylesheet" type="text/css" href="{% static 'stylesheets/base.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'stylesheets/home.css' %}">
+<link rel="stylesheet" type="text/css" href="stylesheets/base.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
 
 </head>
+
 <body>
 
 <div class="bg">
 <canvas id="lines" class="background"></canvas>
 </div>
 
-
 <!--
 <button class="ham"> <span class="openicon material-icons">menu</span></button> -->
 <button class="menu_button"> <span class="material-icons">menu</span></button>
 
 <div id="sidebar" class="sidebar">
-
-
 <div id="smarttab">
 <ul class="nav">
 <li>
@@ -133,7 +131,6 @@
 </div>
 
 
-
 <div class="containermain">
 <main id="main" role="main" class="container">
 <div class="block_content">
@@ -143,42 +140,13 @@
 
 
 <script>
-    var sidebar = document.querySelector(".sidebar");
-    var menu_button = document.querySelector(".menu_button");
-    var openicon = document.querySelector(".material-icons");
-    var mainlinks = document.querySelectorAll(".sidebarLink");
-    var backgroundl = document.querySelector(".background");
-    menu_button.addEventListener("click", toggleSidebar);
-    var container = document.querySelector(".container");
-
-    function toggleSidebar(){
-    if (sidebar.classList.contains("showMenu")) {
-        sidebar.classList.remove("showMenu");
-        menu_button.style.display="block";
-        backgroundl.style.zIndex="-99";
-        container.style.display="flex";
-        setTimeout(() => { container.classList.remove("hideContainer");}, 50);
-
-    } else {
-        sidebar.classList.add("showMenu");
-        menu_button.style.display="none";
-        backgroundl.style.zIndex="6";
-        container.classList.add("hideContainer");
-        setTimeout(() => { container.style.display="none";}, 250);
-    }
-    }
-
-
-</script>
-
-<script>
     window.onload=function(){
     Particles.init({
     selector:'.background',
     connectParticles:true,
     color: ['#ff0000', '#000dff', '#a200ff', '#ffffff'],
     maxParticles: 400,
-    speed: .8,
+    speed: .2,
     minDistance: 80,
     });
     };
