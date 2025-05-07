@@ -1,273 +1,300 @@
 
-/* Bounce To Right Effect */
-.hvr-bounce-to-right {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
-.hvr-bounce-to-right:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #2098D1;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 0 50%;
-  transform-origin: 0 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
-  color: white;
-}
-.hvr-bounce-to-right:hover:before, .hvr-bounce-to-right:focus:before, .hvr-bounce-to-right:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+.all_content {
+  display: flex;
+  flex-direction: column;
 }
 
-html {
-    color: #222;
-    font-size: 1em;
-    line-height:1.4;
-    background-color: black;
+
+#typing_header {
+  font-family: Tahoma, sans-serif;
+  width: 100%;
+  color: black;
+  margin: 0;
+  padding: 0% 0%;
+  text-align: center;
+  #background-color: #f6f8fa;
+  font-size: 36px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+
+@keyframes blink {
+  0% {opacity: 1;}
+  40% {opacity: 1;}
+  60% {opacity: 0;}
+  100% {opacity: 0;}
 }
 
-ul {
-  margin: 2px;
-}
-/*static background div */
-.bg{
-position: fixed;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-overflow: hidden;
-z-index:-100;
-}
-/* Wireframe class*/
-.background {
-object-fit:cover;
-width:100%;
-height: 100%;
-position: absolute;
-display: block;
-top:0;
-left:0;
-bottom:0;
-right:0;
-z-index:-99;
+:root {
+    --primary-color: #0366d6;
+    --secondary-color: #24292e;
+    --text-color: #24292e;
+    --background-color: #f6f8fa;
+    --card-background: #ffffff;
 }
 
 body {
-z-index: 0;
-font-family: "Lato", sans-serif;
-margin: auto;
-max-width: 100%;
-min-height: 100%;
-position: static;
-opacity: .95;
-background: black;
-
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    z-index: 2; /* Higher z-index than canvas */
 }
 
-/*Holds intro text prior to app launch */
 .container {
-    background-color: #dddfd4;
-    min-width=100%;
-    max-height=90%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 2rem;
-    margin: auto;
-    overflow-x: hidden;
-    border-style: solid;
-    border-radius: 16px;
-    position:static;
-    z-index: 1;
-    opacity: .96;
-    display:flex;
-    transition: transform .7s;
-    transform:translateX(0%);
 }
 
-.hideContainer {
-    transform:translateX(+200%);
-}
-.container *{
-    max-height=inherit;
-    background-color: inherit;
-    position: inherit;
-    opacity: 1;
-}
-
-.block_content{
-z-index: 2;
-}
-
-.containermain {
-    opacity:inherit;
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    z-index: 2; /* Higher z-index than canvas */
 }
 
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
 
-/* Move links in main-menu away from top of screen for easier readability */
-.mainlinkcontainer  {
-    position: relative;
+.bio-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem;
+    z-index: 2; /* Higher z-index than canvas */
+}
+
+@media (min-width: 768px) {
+    .bio-section {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.profile-img-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .profile-img-container {
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bio-content {
+    flex: 1;
+}
+
+.grid-header {
+    z-index: 2; /* Higher z-index than canvas */
+    margin-left: 2rem;
+}
+
+.tools-grid, .blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    z-index: 2; /* Higher z-index than canvas */
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.tool-card {
+    background-color: #fff4ea;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tool-card a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tool-card-content {
+    padding: 1.5rem;
+}
+
+.tool-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.tool-card p {
+    margin-bottom: 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #586069;
+    z-index: 2; /* Higher z-index than canvas */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    z-index: 2; /* Higher z-index than canvas */
+}
+
+.social-links a {
+    color: #586069;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.lines {
+    position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Lower z-index than links */
+}
+
+
+/* Tools Table view */
+.tools-table, .blogs-table {
+    overflow-x: auto;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.tools-table table, .blogs-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f8f8f8;
+}
+
+.tools-table th, .blogs-table th, .tools-table td, .blogs-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
+.tools-table th, .blogs-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.tools-table tr:hover, .blogs-table tr:hover {
+    background-color: #b1baff;
+}
+
+/* Toggle switch container */
+.view-toggle-container {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 2rem;
 }
 
-
-.mainlinkcontainer * {
-margin: auto;
-display:flex;
-align-content: center;
-flex-grow: 1;
+.view-label {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #555;
 }
 
-/*Properties of mainmenu pop-out bar */
-.sidebar {
-  min-height: 100%;
-  min-width: 100%;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  transition: transform .7s;
-  transform:translateX(-100%);
-  opacity: .9;
-
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
 }
 
-#smarttab {
-width: 100%;
-
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-/*Gets applied to sidebar/rightbar when toggleSidebar gets executed to move 'in-screen' from left/right */
-.showMenu {
-    transform:translateX(0%);
-}
-
-.sidebar a {
-  text-decoration: none;
-  font-size: 1em;
-  border-style: groove groove groove groove !important;
-  border-width: 1px !important;
-  border-color: black !important;
-  transition: 0.3s;
-  z-index: 10;
-  opacity: 1;
-  width: 100%;
-  top: 0;
-  margin: auto;
-  display: flex !important;
-  justify-content: center !important;
-  background-color: #7f8c8d !important;
-}
-
-.sidebar a:hover {
-  color: #ffffff;
-  z-index: 10;
-    opacity: .9;
-}
-
-.menu_button {
-    position: fixed;
-    z-index:5;
-    top:1rem;
-    left:1rem;
-    border:black solid 0px;
-    background: rgba(0,0,0,0);
+/* The slider */
+.slider {
+    position: absolute;
     cursor: pointer;
-    color: white;
-    opacity: 1;
-    transition: 0.3s;
-}
-.menu_button:hover {
-  color: #3283a8;
-
-}
-
-.material-icons-outlined{
-background: rgba(0,0,0,0);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
 }
 
-
-.scroll-y {
-overflow-y: auto !important;
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
 }
 
-.tab-content {
-    background: #f7f1e3;
-    position: statc;
-    height: 100% !important;
-    padding: 0vh 2vh 2vh 2vh;
-    margin: auto;
-    border-radius: 2px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    transition: height 1s;
+input:checked + .slider {
+    background-color: #0059ff;
 }
 
-.nav {
-    border-radius: 2px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
+input:focus + .slider {
+    box-shadow: 0 0 1px #0059ff;
 }
 
-.inner-tab a{
-background-color:#aaa69d !important;
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
 
-#smarttab-actor *{
-transition: height .3s;
-background: #ffffff;
+/* Rounded sliders */
+.slider.round {
+    border-radius: 24px;
 }
 
-#smarttab-welcome *{
-transition: height .3s;
-background: #ffffff;
-}
-
-/* Contains the entire inner tab structure for each menu segment */
-.tab-pane {
-transition: height 1s;
-}
-
-
-#datatable-loader {
-    border:16px solid #f3f3f3;
+.slider.round:before {
     border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-    margin-left: 200px;
-    margin-top: 30px;
 }
-

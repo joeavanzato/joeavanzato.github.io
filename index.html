@@ -1,172 +1,527 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
-<!-- Material Icons by Google-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/css/smart_tab_all.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="stylesheets/smarttab.css">
-<title>JOE AVANZATO - ATTACK, DEFEND, REPEAT</title>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/js/jquery.smartTab.min.js" type="text/javascript"></script>
-<script src="https://unpkg.com/htmx.org@1.4.0"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
-
-
-<link rel="stylesheet" type="text/css" href="stylesheets/base.css">
-<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="base.css">
 </head>
 
 <body>
-
-
-<div id="sidebar" class="sidebar">
-<div id="smarttab">
-<ul class="nav">
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#welcome" hx-get="/fragment/welcome/" hx-trigger="revealed" hx-target="#welcome-target" hx-swap="outerHTML"><span class="material-icons">home</span>HOME</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#detections"><span class="material-icons">sensors</span>DETECTIONS</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#hunts"><span class="material-icons">zoom_out</span>HUNTS</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#actors" hx-get="/fragment/actoroverview/" hx-trigger="click" hx-target="#actor-target" hx-swap="outerHTML"><span class="material-icons">groups</span>ACTORS</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#techniques"><span class="material-icons">grid_view</span>TECHNIQUES</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#mitigations"><span class="material-icons">support</span>MITIGATIONS</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#controls"><span class="material-icons">insert_chart_outlined</span>CONTROLS</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#maltools"><span class="material-icons">warning_amber</span>MAL/TOOLS</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#help"><span class="material-icons">accessibility_new</span>HELP</a>
-</li>
-<li>
-<a class="sidebarLink hvr-bounce-to-right nav-link" href="#admin"><span class="material-icons">lightbulb</span>ADMIN</a>
-</li>
-</ul>
-
-<div class="tab-content scroll-y">
-
-<div id="welcome" class="tab-pane" role="tabpanel">
-<div id="welcome-target" class="htmx-indicator"></div>
-</div>
-<div id="detections" class="tab-pane" role="tabpanel">
-<p>DETECTIONS one of the links above to navigate to the relevant content.</p>
-</div>
-<div id="hunts" class="tab-pane" role="tabpanel">
-<p>HUNTS Tab Contents Ipsem Lorum</p>
-</div>
-
-<div id="actors" class="tab-pane" role="tabpanel">
-<div class="actor-contents">
-
-<div id="actor-target" class="htmx-indicator"></div>
-
-</div>
-</div>
-
-<div id="tab-4" class="tab-pane" role="tabpanel">
-<p>DETECTIONS Tab Contents Ipsem Lorum</p>
-<br>
-<br>
-</div>
-<div id="tab-5" class="tab-pane" role="tabpanel">
-<p>Click one of the links above to navigate to the relevant content.</p>
-</div>
-<div id="tab-6" class="tab-pane" role="tabpanel">
-<p>DETECTIONS Tab Contents Ipsem Lorum</p>
-</div>
-<div id="maltools" class="tab-pane" role="tabpanel">
-<p>Click one of the links above to navigate to the relevant content.</p>
-</div>
-
-<div id="help" class="tab-pane" role="tabpanel">
-<div class="help-contents">
-
-<div id="help-target"></div>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
+<!-- Particles background container -->
+<div id="flexer" class="all_content">
+<div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: auto;"></div>
+<div id="typing_header" class="content_main">
+  <div id="app"></div>
 </div>
 
 
+  <div class="container">
+    <header>
+      <h1>Joe Avanzato</h1>
+      <h3>DFIR Leader, Blue Team Developer, C-Suite Communicator, Detection Engineer, Threat Hunter, Blue Team Specialist</h3>
+      <h3>joeavanzato @ gmail.com</h3>
+      <p><a href="https://github.com/joeavanzato">GitHub</a>, <a href="https://www.linkedin.com/in/joseph-avanzato/">LinkedIn</a>, <a href="https://malcommands.com">MalCommands</a>,  <a href="https://beesting.com">BeeSting</a></p>
+    </header>
+  </div>
+
+  <div>
+    <section class="bio-section">
+      <div class="profile-img-container">
+        <img src="/images/profile.jpg" alt="Profile Picture">
+      </div>
+      <div class="bio-content">
+        <h2>$whoami<div style="display: inline;" id="dots"></div></h2>
+        <p>
+        <li>A blue team professional with over a decade of experience spanning Incident Response, Detection Engineering, Threat Hunting, Threat Intelligence, Security Operations and Adversary Simulation
+        <li>Have led the design, procurement, implementation and development of projects including SIEM, SOAR, Deception, MDR, Intelligence and other related topics</li>
+        <li>Development experience spanning Python, PowerShell, C#, Go and related frameworks for command-line, GUI and web-based applications</li>
+        <li>Working experience across all major cloud service providers - Azure, AWS and GCP</li>
+        <li>Experience working within security platforms such as Varonis, Splunk, ArcSight, Microsoft Sentinel, etc</li>
+        <li>Proficiency with endpoint security products such as CrowdStrike, Defender, CarbonBlack, SentinelOne, Trellix, Cylance, etc</li>
+        </p>
+
+        <h2>Experience</h2>
+        <ul>
+          <li><b>Varonis, Security Operations & DFIR Group Leader (Senior Manager)</b></li>
+          <ul>
+            <li>December 2023 - Present</li>
+            <li>Leading group of ~22 globally dispersed specialists across 5 distinct teams - DFIR, Adversary Simulation and Blue Team Engineering</li>
+          </ul>
+          <li><b>Varonis, DFIR Team Leader (Manager)</b></li>
+            <ul>
+                <li>August 2022 - December 2023</li>
+                <li>Leading a team of DFIR specialists handling major incidents for customers including ransomware, data theft, domain compromise, cloud compromise, etc</li>
+              <li>Developed tools in PowerShell, Python, C# and Go to improve team capabilities</li>
+              <li>Develop product proof-of-concept features to improve business platform capabilities</li>
+            </ul>
+          <li><b>Varonis, Security Specialist</b></li>
+          <ul>
+            <li>October 2021 - August 2022</li>
+            <li>Led DFIR engagements for customers</li>
+            <li>Developed tools, platforms and frameworks in Python, PowerShell and C# to boost capabilities</li>
+            <li>Performed attack and defense research for product and team maturity</li>
+          </ul>
+          <li><b>Paychex, Cyber Detection Lead</b></li>
+          <ul>
+            <li>December 2019 - October 2021</li>
+            <li>Led cyber detection strategy development, research and direction</li>
+            <li>Use-Case research, development and life-cycle management</li>
+            <li>Built partnerships across the enterprise to improve visibility, telemetry and general log maturity</li>
+          </ul>
+          <li><b>Paychex, Senior Incident Response Specialist</b></li>
+          <ul>
+            <li>June 2019 - December 2019</li>
+            <li>Led triage and investigation for alerts across the enterprise</li>
+            <li>Extensive Python/PowerShell for investigation/SOAR automations</li>
+            <li>Extensive utilization of Splunk and CrowdStrike - Hunts, Dashboards, etc</li>
+          </ul>
+        </ul>
+
+        <h2>Degrees and Certifications</h2>
+        <p>
+          <li><a href="https://www.credly.com/badges/d8c0849f-1249-4961-ac07-75e566757786/public_url">GIAC Cloud Forensics Responder (GCFR)</a></li>
+          <li><a href="https://www.credly.com/badges/61eb9224-302d-47a7-88bd-b15b497c6862/linked_in_profile">GIAC Reverse Engineering Malware (GREM)</a></li>
+          <li><a href="https://www.credly.com/badges/156cfb0f-cb61-4f81-bedf-10273b0ced09/linked_in_profile">GIAC Advisory Board</a></li>
+          <li>Rochester Institute of Technology, M.S., Computing Security (4.0)</li>
+          <li>University of Rochester, Bachelors, Double-Major in Physics and Political Science</li>
+        </p>
+
+      </div>
+    </section>
+    <div class="grid-header">
+    <h2>Tool Sampling</h2>
+    </div>
+
+    <div class="view-toggle-container">
+      <span class="view-label">Grid</span>
+      <label class="switch">
+        <input type="checkbox" id="viewToggle">
+        <span class="slider round"></span>
+      </label>
+      <span class="view-label">Table</span>
+    </div>
+
+    <div id="gridView" class="tools-grid">
+      <!-- Tool cards will be generated here -->
+    </div>
+
+    <div id="tableView" class="tools-table" style="display: none;">
+      <!-- Tools table will be generated here -->
+    </div>
+
+    <div class="grid-header">
+      <h2>Blogs & Writeups</h2>
+    </div>
+
+    <div class="view-toggle-container">
+      <span class="view-label">Grid</span>
+      <label class="switch">
+        <input type="checkbox" id="viewToggleBlogs">
+        <span class="slider round"></span>
+      </label>
+      <span class="view-label">Table</span>
+    </div>
+
+    <div id="gridViewBlogs" class="blogs-grid">
+      <!-- Tool cards will be generated here -->
+    </div>
+
+    <div id="tableViewBlogs" class="blogs-table" style="display: none;">
+      <!-- Tools table will be generated here -->
+    </div>
 
 
-<div class="bg">
-<canvas id="lines" class="background"></canvas>
+
+
+    <footer>
+      <div class="social-links">
+        <a href="https://github.com/joeavanzato" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/joseph-avanzato" target="_blank">LinkedIn</a>
+        <a href="mailto:joeavanzato@gmail.com">Email</a>
+      </div>
+    </footer>
+  </div>
 </div>
 
 <script>
-    window.onload=function(){
-    Particles.init({
-    selector:'.background',
-    connectParticles:true,
-    color: ['#ff0000', '#000dff', '#a200ff', '#ffffff'],
-    maxParticles: 400,
-    speed: .2,
-    minDistance: 80,
+var app = document.getElementById('app');
+var typewriter = new Typewriter(app, {
+    loop: true
+});
+typewriter.typeString('<strong>Attack, Defend, Repeat</strong>')
+    .pauseFor(2500)
+    .deleteAll()
+    .pauseFor(2500)
+    .start();
+</script>
+<script>
+  var dots = document.getElementById('dots');
+  var typewriter = new Typewriter(dots, {loop: true, cursor: ''});
+  typewriter.typeString('<strong>...</strong>')
+          .pauseFor(2500)
+          .deleteAll()
+          .pauseFor(2500)
+          .start();
+</script>
+<script>
+  // Toggle between grid and table views for Tools
+  document.addEventListener('DOMContentLoaded', function() {
+    const viewToggle = document.getElementById('viewToggle');
+    const gridView = document.getElementById('gridView');
+    const tableView = document.getElementById('tableView');
+
+    viewToggle.addEventListener('change', function() {
+      if (this.checked) {
+        // Table view
+        gridView.style.display = 'none';
+        tableView.style.display = 'block';
+      } else {
+        // Grid view
+        gridView.style.display = 'grid';
+        tableView.style.display = 'none';
+      }
     });
-    };
+  });
 </script>
-
 <script>
-var typed = new Typed('#typed', {
-stringsElement: '#typed-strings',
-typeSpeed: 25,
-});
+  // Toggle between grid and table views for Blogs
+  document.addEventListener('DOMContentLoaded', function() {
+    const viewToggle = document.getElementById('viewToggleBlogs');
+    const gridView = document.getElementById('gridViewBlogs');
+    const tableView = document.getElementById('tableViewBlogs');
+
+    viewToggle.addEventListener('change', function() {
+      if (this.checked) {
+        // Table view
+        gridView.style.display = 'none';
+        tableView.style.display = 'block';
+      } else {
+        // Grid view
+        gridView.style.display = 'grid';
+        tableView.style.display = 'none';
+      }
+    });
+  });
 </script>
-
 <script>
-$(document).ready(function() {
-$('#smarttab').smartTab();
-});
 
-var options= {
-selected:1,
-transition: {
-    animation: 'swing-horizontal',
-    speed: 400,
-},
-theme: 'dark',
-autoAdjustHeight: true,
-keyboardSettings: {
-keyNavigation: false,
+  const blogs = [
+    {
+      name: "Large scale hunting and collection from immature networks",
+      link: "https://attackersmindset.com/2025/05/05/large-scale-hunting-and-collection-from-immature-networks/",
+      description: "Presentation of a tool purpose-built to solve the problem of Incident Response without centralized agent infrastructure",
+    },
+  ];
+
+  function generateToolCards() {
+    const toolsContainer = document.querySelector('.blogs-grid');
+    toolsContainer.innerHTML = ''; // Clear existing content
+
+    blogs.forEach(blog => {
+      const card = document.createElement('div');
+      card.className = 'tool-card';
+      card.innerHTML = `
+    <a href="${blog.link}">
+      <div class="tool-card-content">
+        <div class="tool-header">
+          <h3>${blog.name}</h3>
+        </div>
+        <p>${blog.description}</p>
+      </div>
+    </a>
+  `;
+      toolsContainer.appendChild(card);
+    });
+
+    const toolsTable = document.querySelector('.blogs-table');
+    toolsTable.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${blogs.map(blog => `
+          <tr onclick="window.location='${blog.link}';" style="cursor: pointer;">
+            <td><b>${blog.name}</b></td>
+            <td>${blog.description}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+  }
+  document.addEventListener('DOMContentLoaded', generateToolCards);
+</script>
+<script>
+
+const tools = [
+  {
+    name: "trawler",
+    repo: "joeavanzato/trawler",
+    description: "PowerShell script for detecting adversary persistence mechanisms",
+    url: "https://github.com/joeavanzato/trawler",
+    languages: "PowerShell"
+  },
+  {
+    name: "LogBoost",
+    repo: "joeavanzato/logboost",
+    description: "CLI tool for parsing log files to CSV and enriching IP addresses with TI, DNS, GEO, ASN, etc",
+    url: "https://github.com/joeavanzato/logboost",
+    languages: "Go"
+  },
+  {
+    name: "RetrievIR",
+    repo: "joeavanzato/RetrievIR",
+    description: "PowerShell script for collecting evidence from local and remote Windows machines",
+    url: "https://github.com/joeavanzato/RetrievIR",
+    languages: "PowerShell"
+  },
+  {
+    name: "omni",
+    repo: "joeavanzato/omni",
+    description: "Orchestrator for rapid network-wide evidence collection",
+    url: "https://github.com/joeavanzato/omni",
+    languages: "Go"
+  },
+  {
+    name: "goexec",
+    repo: "joeavanzato/goexec",
+    description: "PSExec-like shells in Golang",
+    url: "https://github.com/joeavanzato/goexec",
+    languages: "Go"
+  },
+  {
+    name: "Velociraptor Timeline Creator",
+    repo: "joeavanzato/velociraptor-timeline-creator",
+    description: "Create super-timelines from Velociraptor data",
+    url: "https://github.com/joeavanzato/velociraptor-timeline-creator",
+    languages: "Go"
+  },
+  {
+    name: "crackdown",
+    repo: "joeavanzato/crackdown",
+    description: "Linux Persistence Hunting",
+    url: "https://github.com/joeavanzato/crackdown",
+    languages: "Go"
+  },
+  {
+    name: "differ",
+    repo: "joeavanzato/differ",
+    description: "Cross-Platform file system 'diffing' utility to identify file-system changes between events",
+    url: "https://github.com/joeavanzato/differ",
+    languages: "Go"
+  },
+  {
+    name: "SigmaToVQL",
+    repo: "joeavanzato/SigmaToVQL",
+    description: "Python framework for auto-generation of VQL queries from Sigma rules and artifact mappings",
+    url: "https://github.com/joeavanzato/SigmaToVQL",
+    languages: "Python"
+  },
+  {
+    name: "YARACheck",
+    repo: "joeavanzato/YARACheck",
+    description: "Python script to update and utilize YARA rules against targeted directories or files",
+    url: "https://github.com/joeavanzato/YARACheck",
+    languages: "Python"
+  },
+  {
+    name: "RAID",
+    repo: "joeavanzato/RAID",
+    description: "PowerShell script to quickly aggregate interesting forensic data from an endpoint",
+    url: "https://github.com/joeavanzato/RAID",
+    languages: "PowerShell"
+  },
+  {
+    name: "WMIHunter",
+    repo: "joeavanzato/WMIHunter",
+    description: "PowerShell script to query hunting data via WMI from remote endpoints",
+    url: "https://github.com/joeavanzato/WMIHunter",
+    languages: "PowerShell"
+  },
+  {
+    name: "PyShares",
+    repo: "joeavanzato/PyShares",
+    description: "An implementation of SharpShares-style functionality in Python",
+    url: "https://github.com/joeavanzato/PyShares",
+    languages: "Python"
+  },
+  {
+    name: "QuickScan",
+    repo: "joeavanzato/QuickScan",
+    description: "Basic triage checks for a Windows endpoint in Python",
+    url: "https://github.com/joeavanzato/QuickScan",
+    languages: "Python"
+  }
+
+];
+
+function generateToolCards() {
+  const toolsContainer = document.querySelector('.tools-grid');
+  toolsContainer.innerHTML = ''; // Clear existing content
+
+  tools.forEach(tool => {
+    const card = document.createElement('div');
+    card.className = 'tool-card';
+    card.innerHTML = `
+    <a href="${tool.url}">
+      <div class="tool-card-content">
+        <div class="tool-header">
+          <h3>${tool.name}</h3>
+          <p><img src="https://img.shields.io/github/stars/${tool.repo}?style=social" alt="GitHub stars"></p>
+        </div>
+        <p>${tool.description}</p>
+      </div>
+    </a>
+  `;
+    toolsContainer.appendChild(card);
+  });
+
+  const toolsTable = document.querySelector('.tools-table');
+  toolsTable.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Languages</th>
+          <th>Stars</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${tools.map(tool => `
+          <tr onclick="window.location='${tool.url}';" style="cursor: pointer;">
+            <td><b>${tool.name}</b></td>
+            <td><b>${tool.languages}</b></td>
+            <td><img src="https://img.shields.io/github/stars/${tool.repo}?style=social" alt="GitHub stars"></td>
+            <td>${tool.description}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
 }
-};
-
-$('#smarttab').smartTab("setOptions", options);
+document.addEventListener('DOMContentLoaded', generateToolCards);
 </script>
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 28,
+          "density": {
+            "enable": true,
+            "value_area": 78.91476416322726
+          }
+        },
+        "color": {
+          "value": "#0000ff"
+        },
+        "shape": {
+          "type": "polygon",
+          "stroke": {
+            "width": 0,
+            "color": "#003cff"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.3235505330692318,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 0,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#0059ff",
+          "opacity": 0.29987610382026364,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": .25,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": false,
+            "mode": "bubble"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 97.44926547616141,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  });
+</script>
 </body>
 </html>
